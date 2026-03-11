@@ -43,7 +43,7 @@ int main(void)
     set_led(LED3,0);
     set_led(LED5,1);
     set_led(LED7,0);
-    set_body_led(0);
+
     /* Infinite loop. */
     while (1)
     {
@@ -56,34 +56,17 @@ int main(void)
     	set_led(LED7,2);
     	chThdSleepMilliseconds(500);
 
-//    	if (get_calibrated_prox(0)>=200 || get_calibrated_prox(7)>=200)
-//    	{
-//    		set_front_led(2);
-//    		left_motor_set_speed(500);
-//    		right_motor_set_speed(-500);
-//    	}
-//    	else
-//    	{
-//    		left_motor_set_speed(500);
-//    		right_motor_set_speed(500);
-//    	}
-    	selectorvalue = get_selector();
-    	left_motor_set_speed(500);
-    	right_motor_set_speed(-500);
-    	for (int i=0; i < selectorvalue+1; i++){
-    		set_body_led(1);
-    		chThdSleepMillisecond(50);
-    		set_body_led(0);
-    		chThdSleepMillisecond(500);
+    	if (get_calibrated_prox(0)>=200 || get_calibrated_prox(7)>=200)
+    	{
+    		set_front_led(2);
+    		left_motor_set_speed(500);
+    		right_motor_set_speed(-500);
     	}
-		left_motor_set_speed(-500);
-		right_motor_set_speed(500);
-		for (int i=0; i < selectorvalue+1; i++){
-				set_body_led(1);
-				chThdSleepMillisecond(50);
-				set_body_led(0);
-				chThdSleepMillisecond(500);
-			}
+    	else
+    	{
+    		left_motor_set_speed(500);
+    		right_motor_set_speed(500);
+    	}
     }
 }
 
