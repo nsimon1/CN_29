@@ -1466,3 +1466,371 @@ java.io.FileNotFoundException: /home/acse-lab/Documents/CN29/Project/build/Proje
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2026-03-11 13:29:29.628 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=1.8.0_452
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product -data Workspace
+
+!ENTRY org.eclipse.core.resources 2 10035 2026-03-11 13:29:32.001
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2026-03-11 13:31:22.424 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=1.8.0_452
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product -data Workspace
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2026-03-11 13:51:34.656
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: /home/acse-lab/Documents/CN_29/Project/build/Project_template.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:131)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:315)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:142)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2026-03-11 13:51:34.657
+!MESSAGE /home/acse-lab/Documents/CN_29/Project/build/Project_template.elf not found
+!STACK 0
+java.io.FileNotFoundException: /home/acse-lab/Documents/CN_29/Project/build/Project_template.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:131)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:315)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:142)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2026-03-11 13:52:02.246
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Attaching to Remote target failed
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Attaching to Remote target failed
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Attaching to Remote target failed
+java.lang.Exception: Attaching to Remote target failed
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10004 2026-03-11 13:52:02.248
+!MESSAGE Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Attaching to Remote target failed
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:52:02.248
+!MESSAGE Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Attaching to Remote target failed
+!STACK 0
+java.lang.Exception: Attaching to Remote target failed
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2026-03-11 13:52:43.045
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory. ,Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target. ,Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory. ,Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target. ,Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory.
+java.lang.Exception: /dev/ttyACM0: No such file or directory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+Contains: Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target.
+java.lang.Exception: "monitor" command not supported by this target.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+Contains: Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+java.lang.Exception: Don't know how to attach.  Try "help target".
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10004 2026-03-11 13:52:43.045
+!MESSAGE Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory. ,Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target. ,Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:52:43.045
+!MESSAGE Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory.
+!STACK 0
+java.lang.Exception: /dev/ttyACM0: No such file or directory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:52:43.045
+!MESSAGE Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target.
+!STACK 0
+java.lang.Exception: "monitor" command not supported by this target.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:52:43.045
+!MESSAGE Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+!STACK 0
+java.lang.Exception: Don't know how to attach.  Try "help target".
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2026-03-11 13:54:12.563
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory. ,Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target. ,Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory. ,Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target. ,Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory.
+java.lang.Exception: /dev/ttyACM0: No such file or directory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+Contains: Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target.
+java.lang.Exception: "monitor" command not supported by this target.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+Contains: Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+java.lang.Exception: Don't know how to attach.  Try "help target".
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10004 2026-03-11 13:54:12.563
+!MESSAGE Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory. ,Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target. ,Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:54:12.563
+!MESSAGE Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory.
+!STACK 0
+java.lang.Exception: /dev/ttyACM0: No such file or directory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:54:12.563
+!MESSAGE Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target.
+!STACK 0
+java.lang.Exception: "monitor" command not supported by this target.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:54:12.563
+!MESSAGE Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+!STACK 0
+java.lang.Exception: Don't know how to attach.  Try "help target".
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2026-03-11 13:54:51.966
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory. ,Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target. ,Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory. ,Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target. ,Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory.
+java.lang.Exception: /dev/ttyACM0: No such file or directory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+Contains: Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target.
+java.lang.Exception: "monitor" command not supported by this target.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+Contains: Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+java.lang.Exception: Don't know how to attach.  Try "help target".
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10004 2026-03-11 13:54:51.966
+!MESSAGE Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory. ,Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target. ,Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:54:51.966
+!MESSAGE Failed to execute MI command:
+target extended-remote/dev/ttyACM0
+Error message from debugger back end:
+/dev/ttyACM0: No such file or directory.
+!STACK 0
+java.lang.Exception: /dev/ttyACM0: No such file or directory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:54:51.966
+!MESSAGE Failed to execute MI command:
+monitor swdp_scan
+Error message from debugger back end:
+"monitor" command not supported by this target.
+!STACK 0
+java.lang.Exception: "monitor" command not supported by this target.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2026-03-11 13:54:51.966
+!MESSAGE Failed to execute MI command:
+attach 1
+Error message from debugger back end:
+Don't know how to attach.  Try "help target".
+!STACK 0
+java.lang.Exception: Don't know how to attach.  Try "help target".
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)

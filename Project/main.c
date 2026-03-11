@@ -36,9 +36,26 @@ int main(void)
     //Motors
     motors_init();
 
+    void clear_leds(void);
+    void spi_comm_start(void);
+
+    set_led(LED1,1);
+    set_led(LED3,0);
+    set_led(LED5,1);
+    set_led(LED7,0);
+
     /* Infinite loop. */
     while (1)
     {
+    	set_led(LED1,2);
+    	chThdSleepMilliseconds(500);
+    	set_led(LED3,2);
+    	chThdSleepMilliseconds(500);
+    	set_led(LED5,2);
+    	chThdSleepMilliseconds(500);
+    	set_led(LED7,2);
+    	chThdSleepMilliseconds(500);
+
     	if (get_calibrated_prox(0)>=200 || get_calibrated_prox(7)>=200)
     	{
     		set_front_led(2);
