@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+#include "ch.h"
+#include "hal.h"
+#include "memory_protection.h"
+#include <main.h>
+#include "leds.h"
+#include "spi_comm.h"
+#include "sensors/proximity.h"
+#include "motors.h"
+#include "epuck1x/uart/e_uart_char.h"
+#include "serial_comm.h"
+
+messagebus_t bus;
+MUTEX_DECL(bus_lock);
+CONDVAR_DECL(bus_condvar);
+
+
+int main(void)
+{
+
+    halInit();
+    chSysInit();
+    mpu_init();
+
+    // Proximity
+    messagebus_init(&bus, &bus_lock, &bus_condvar);
+    proximity_start(0);
+    calibrate_ir();
+
+    //LED
+    clear_leds();
+    spi_comm_start();
+
+    //Motors
+    motors_init();
+
+    //Bluetooth
+    serial_start();
+
+
+    set_led(LED1,1);
+    set_led(LED3,0);
+    set_led(LED5,1);
+    set_led(LED7,0);
+    set_body_led(0);
+
+
+
+    /* Infinite loop. */
+    while (1)
+    {
+    	for (int i=0; i < 8; i++){
+    		get_prox(i);
+    	}
+//    	char str[100];
+//    	int str_length;
+//    	str_length = sprintf(str, "Hello World\n");
+//    	e_send_uart1_char(str, str_length);
+    	chThdSleepMilliseconds(50);
+
+    	if (get_prox(0) < 200 || get_prox(7) < 200) {
+    		if (get_prox(0) < get_prox(7)) {
+    			left_motor_set_speed(-500);
+    			right_motor_set_speed(500);
+    		}
+    		else {
+    			left_motor_set_speed(500);
+    			right_motor_set_speed(-500);
+    		}
+		}
+    	else {
+    		left_motor_set_speed(500);
+    		right_motor_set_speed(-500);
+    	}
+    }
+
+//    	if (get_calibrated_prox(0)>=200 || get_calibrated_prox(7)>=200)
+//    	{
+//    		set_front_led(2);
+//    		left_motor_set_speed(500);
+//    		right_motor_set_speed(-500);
+//    	}
+//    	else
+//    	{
+//    		left_motor_set_speed(500);
+//    		right_motor_set_speed(500);
+//    	}
+//    	selectorvalue = get_selector();
+//    	left_motor_set_speed(500);
+//    	right_motor_set_speed(-500);
+//    	for (int i=0; i < selectorvalue+1; i++){
+//    		set_body_led(1);
+//    		set_led(LED1,1);
+//    		set_led(LED3,1);
+//    		set_led(LED5,1);
+//    		set_led(LED7,1);
+//    		chThdSleepMilliseconds(50);
+//    		set_body_led(0);
+//    		set_led(LED1,0);
+//			set_led(LED3,0);
+//			set_led(LED5,0);
+//			set_led(LED7,0);
+//    		chThdSleepMilliseconds(500);
+//    	}
+//		left_motor_set_speed(-500);
+//		right_motor_set_speed(500);
+//		for (int i=0; i < selectorvalue+1; i++){
+//				set_body_led(1);
+//				chThdSleepMilliseconds(50);
+//				set_body_led(0);
+//				chThdSleepMilliseconds(500);
+//		}
+}
+
+
+#define STACK_CHK_GUARD 0xe2dee396
+uintptr_t __stack_chk_guard = STACK_CHK_GUARD;
+
+void __stack_chk_fail(void)
+{
+    chSysHalt("Stack smashing detected");
+}

@@ -11,6 +11,8 @@
 #include "spi_comm.h"
 #include "sensors/proximity.h"
 #include "motors.h"
+#include "epuck1x/uart/e_uart_char.h"
+#include "serial_comm.h"
 
 messagebus_t bus;
 MUTEX_DECL(bus_lock);
@@ -36,26 +38,51 @@ int main(void)
     //Motors
     motors_init();
 
-    void clear_leds(void);
-    void spi_comm_start(void);
+    //Bluetooth
+    serial_start();
+
 
     set_led(LED1,1);
     set_led(LED3,0);
     set_led(LED5,1);
     set_led(LED7,0);
     set_body_led(0);
+
+
+
     /* Infinite loop. */
     while (1)
     {
-    	set_led(LED1,2);
-    	chThdSleepMilliseconds(500);
-    	set_led(LED3,2);
-    	chThdSleepMilliseconds(500);
-    	set_led(LED5,2);
-    	chThdSleepMilliseconds(500);
-    	set_led(LED7,2);
-    	chThdSleepMilliseconds(500);
+//    	for (int i=0; i < 8; i++){
+//    		get_calibrated_prox(i);
 
+//    	char str[100];
+//    	int str_length;
+//    	str_length = sprintf(str, "Hello World\n");
+	//    	e_send_uart1_char(str, str_length);
+		if (get_calibrated_prox(0) > 700 || get_calibrated_prox(1) > 700 || get_calibrated_prox(2) > 700 || get_calibrated_prox(5) > 700 || get_calibrated_prox(6) > 700 || get_calibrated_prox(7) > 700)
+		{
+			int leftSide = get_calibrated_prox(6) + get_calibrated_prox(7) + get_calibrated_prox(5);
+			int rightSide = get_calibrated_prox(0) + get_calibrated_prox(1) + get_calibrated_prox(2);
+			if (leftSide > rightSide)
+			{
+				left_motor_set_speed(500);
+				right_motor_set_speed(-500);
+			}
+			else
+			{
+				left_motor_set_speed(-500);
+				right_motor_set_speed(500);
+			}
+		}
+		else
+		{
+			left_motor_set_speed(500);
+			right_motor_set_speed(500);
+		}
+		chThdSleepMilliseconds(50);
+    }
+}
 //    	if (get_calibrated_prox(0)>=200 || get_calibrated_prox(7)>=200)
 //    	{
 //    		set_front_led(2);
@@ -67,25 +94,33 @@ int main(void)
 //    		left_motor_set_speed(500);
 //    		right_motor_set_speed(500);
 //    	}
-    	selectorvalue = get_selector();
-    	left_motor_set_speed(500);
-    	right_motor_set_speed(-500);
-    	for (int i=0; i < selectorvalue+1; i++){
-    		set_body_led(1);
-    		chThdSleepMillisecond(50);
-    		set_body_led(0);
-    		chThdSleepMillisecond(500);
-    	}
-		left_motor_set_speed(-500);
-		right_motor_set_speed(500);
-		for (int i=0; i < selectorvalue+1; i++){
-				set_body_led(1);
-				chThdSleepMillisecond(50);
-				set_body_led(0);
-				chThdSleepMillisecond(500);
-			}
-    }
-}
+//    	selectorvalue = get_selector();
+//    	left_motor_set_speed(500);
+//    	right_motor_set_speed(-500);
+//    	for (int i=0; i < selectorvalue+1; i++){
+//    		set_body_led(1);
+//    		set_led(LED1,1);
+//    		set_led(LED3,1);
+//    		set_led(LED5,1);
+//    		set_led(LED7,1);
+//    		chThdSleepMilliseconds(50);
+//    		set_body_led(0);
+//    		set_led(LED1,0);
+//			set_led(LED3,0);
+//			set_led(LED5,0);
+//			set_led(LED7,0);
+//    		chThdSleepMilliseconds(500);
+//    	}
+//		left_motor_set_speed(-500);
+//		right_motor_set_speed(500);
+//		for (int i=0; i < selectorvalue+1; i++){
+//				set_body_led(1);
+//				chThdSleepMilliseconds(50);
+//				set_body_led(0);
+//				chThdSleepMilliseconds(500);
+//		}
+
+
 
 #define STACK_CHK_GUARD 0xe2dee396
 uintptr_t __stack_chk_guard = STACK_CHK_GUARD;
