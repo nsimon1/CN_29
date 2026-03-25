@@ -1,6 +1,16 @@
-15:53:47 **** Incremental Build of configuration Default for project Project ****
+15:56:07 **** Incremental Build of configuration Default for project Project ****
 make all 
-make: Nothing to be done for 'all'.
+[1;34mCompiling main.c[0m
+[1;34mLinking build/Project_template.elf[0m
+[1;34mCreating build/Project_template.hex[0m
+[1;34mCreating build/Project_template.bin[0m
+[1;34mCreating build/Project_template.dmp[0m
 
-15:53:48 Build Finished. 0 errors, 0 warnings. (took 612ms)
+   text	   data	    bss	    dec	    hex	filename
+  63556	   3084	  17508	  84148	  148b4	build/Project_template.elf
+[1;34mCreating build/Project_template.list[0m
+
+[1;34mDone[0m
+
+15:56:08 Build Finished. 0 errors, 0 warnings. (took 838ms)
 
