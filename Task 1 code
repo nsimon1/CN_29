@@ -13,7 +13,6 @@
 #include "motors.h"
 #include "epuck1x/uart/e_uart_char.h"
 #include "serial_comm.h"
-#include "selector.h"
 
 messagebus_t bus;
 MUTEX_DECL(bus_lock);
@@ -23,7 +22,7 @@ CONDVAR_DECL(bus_condvar);
 int main(void)
 {
 
-	int threshold = 700;
+	int threshold = 800;
 
     halInit();
     chSysInit();
@@ -51,9 +50,6 @@ int main(void)
     set_led(LED7,0);
     set_body_led(0);
 
-    // selector
-    int get_selector(void);
-
     /* Infinite loop. */
     while (1)
     {
@@ -70,17 +66,10 @@ int main(void)
 		int ps5 = get_calibrated_prox(5);
 		int ps6 = get_calibrated_prox(6);
 		int ps7 = get_calibrated_prox(7);
-		int front = ps0 + ps7;
-		int left  = ps6 + ps5;
+		int front = ps0 + ps1 + ps7;
+		int left  = ps6 + ps7;
 		int right = ps1 + ps2;
 		int turn_length = (rand() % 500)+500;
-
-		int base_speed = 200;
-		int gain = 0.5;
-
-		int left_motor  = base_speed + gain * left;
-		int right_motor = base_speed + gain * right;
-
 		if (front > threshold)
 		{
 			int r = rand() % 2;
@@ -99,18 +88,18 @@ int main(void)
 		}
 		else if(left > threshold)
 		{
-			left_motor_set_speed(left_motor);
-			right_motor_set_speed(-right_motor);
+			left_motor_set_speed(500);
+			right_motor_set_speed(-300);
 		}
 		else if(right > threshold)
 		{
-			left_motor_set_speed(-left_motor);
-			right_motor_set_speed(right_motor);
+			left_motor_set_speed(-300);
+			right_motor_set_speed(500);
 		}
 		else
 		{
-			left_motor_set_speed((1000/16)*get_selector());
-			right_motor_set_speed((1000/16)*get_selector());
+			left_motor_set_speed(500);
+			right_motor_set_speed(500);
 		}
 		chThdSleepMilliseconds(100);
 		}
@@ -161,3 +150,4 @@ void __stack_chk_fail(void)
 {
     chSysHalt("Stack smashing detected");
 }
+
