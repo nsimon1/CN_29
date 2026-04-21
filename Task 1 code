@@ -21,9 +21,6 @@ CONDVAR_DECL(bus_condvar);
 
 int main(void)
 {
-
-	int threshold = 800;
-
     halInit();
     chSysInit();
     mpu_init();
@@ -49,6 +46,7 @@ int main(void)
     set_led(LED5,1);
     set_led(LED7,0);
     set_body_led(0);
+	int threshold = 500;
 
     /* Infinite loop. */
     while (1)
@@ -76,12 +74,12 @@ int main(void)
 			if(r == 0)
 			{
 				left_motor_set_speed(500);
-				right_motor_set_speed(-500);
+				right_motor_set_speed(100);
 				chThdSleepMilliseconds(turn_length);
 			}
 			else
 			{
-				left_motor_set_speed(-500);
+				left_motor_set_speed(100);
 				right_motor_set_speed(500);
 				chThdSleepMilliseconds(turn_length);
 			}
@@ -89,11 +87,11 @@ int main(void)
 		else if(left > threshold)
 		{
 			left_motor_set_speed(500);
-			right_motor_set_speed(-300);
+			right_motor_set_speed(100);
 		}
 		else if(right > threshold)
 		{
-			left_motor_set_speed(-300);
+			left_motor_set_speed(100);
 			right_motor_set_speed(500);
 		}
 		else
