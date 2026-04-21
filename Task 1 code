@@ -47,7 +47,10 @@ int main(void)
     set_led(LED7,0);
     set_body_led(0);
 	int threshold = 500;
-
+	float x = 0;
+	float t = 0;
+	float time_step = 101;
+	int mega_threshold = 800;
     /* Infinite loop. */
     while (1)
     {
@@ -64,35 +67,45 @@ int main(void)
 		int ps5 = get_calibrated_prox(5);
 		int ps6 = get_calibrated_prox(6);
 		int ps7 = get_calibrated_prox(7);
-		int front = ps0 + ps1 + ps7;
-		int left  = ps6 + ps7;
-		int right = ps1 + ps2;
-		int turn_length = (rand() % 500)+500;
+		int front = ps0 + ps7 + ps6 + ps1;
+		int left  = ps6 + ps7 + ps5;
+		int right = ps1 + ps2 + ps0;
+		int turn_length = (rand() % 0.5)+0.25;
 		if (front > threshold)
 		{
 			int r = rand() % 2;
 			if(r == 0)
 			{
 				left_motor_set_speed(500);
-				right_motor_set_speed(100);
-				chThdSleepMilliseconds(turn_length);
+				for float(t = 0; t < time_step; t=t+(turn_length/(time_step-1)))
+					x = 6400*t^3 -4800*t^2 +500
+					right_motor_step_speed(x)
+					chThdSleepMilliseconds(500/time_step);						
 			}
 			else
 			{
-				left_motor_set_speed(100);
 				right_motor_set_speed(500);
-				chThdSleepMilliseconds(turn_length);
+				for float(t = 0; t < time_step; t=t+(turn_length/(time_step-1)))
+					x = 6400*t^3 -4800*t^2 +500
+					left_motor_step_speed(x)
+					chThdSleepMilliseconds(500/time_step);
 			}
 		}
 		else if(left > threshold)
 		{
 			left_motor_set_speed(500);
-			right_motor_set_speed(100);
+			for float(t = 0; t < time_step; t=t+(turn_length/(time_step-1)))
+				x = 6400*t^3 -4800*t^2 +500
+				right_motor_step_speed(x)
+				chThdSleepMilliseconds(500/time_step);
 		}
 		else if(right > threshold)
 		{
-			left_motor_set_speed(100);
 			right_motor_set_speed(500);
+			for float(t = 0; t < time_step; t=t+(turn_length/(time_step-1)))
+				x = 6400*t^3 -4800*t^2 +500
+				left_motor_step_speed(x)
+				chThdSleepMilliseconds(500/time_step);
 		}
 		else
 		{
